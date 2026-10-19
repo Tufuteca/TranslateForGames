@@ -1,8 +1,9 @@
 import json
 import os
 import re
+import settings
 
-GLOSSARY_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "glossary.json")
+GLOSSARY_FILE = os.path.join(settings.APP_DIR, "glossary.json")
 DEFAULT_GLOSSARY = {
     "hints": ["хот зона", "пушить", "прикрой", "респаун", "эвак", "хелс"],
     "replace": {

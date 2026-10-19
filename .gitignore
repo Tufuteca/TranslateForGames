@@ -1,3 +1,11 @@
-﻿.venv/
+﻿# Виртуальное окружение и кэш Python
+.venv/
 __pycache__/
 *.pyc
+
+# Сборка PyInstaller
+build/
+dist/
+
+# Локальные настройки пользователя
+settings.json
