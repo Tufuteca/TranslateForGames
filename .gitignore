@@ -9,3 +9,6 @@ dist/
 
 # Локальные настройки пользователя
 settings.json
+
+translator.log
+models/
