@@ -23,6 +23,7 @@ from ui_settings import SettingsWindow, make_icon
 from inputs import InputManager
 import speech
 from version import __version__
+from updater import check_updates
 
 
 class Bridge(QObject):
@@ -83,6 +84,7 @@ def main():
     menu.addAction("Настройки", lambda: (win.show(), win.raise_(), win.activateWindow()))
     menu.addAction("Показать / скрыть оверлей", overlay.toggle_overlay)
     menu.addAction("Открыть лог", open_log)
+    menu.addAction("Проверить обновления", lambda: check_updates(silent=False, parent=win))
     menu.addSeparator()
     menu.addAction("Выход", app.quit)
     tray.setContextMenu(menu)
@@ -101,6 +103,8 @@ def main():
     win.show()   # пока отлаживаем, окно настроек показываем при каждом запуске
     if first_run:
         save_cb()
+    if cfg.get("check_updates", True):
+        check_updates(silent=True, parent=win)
     if not QSystemTrayIcon.isSystemTrayAvailable():
         print("Системный трей недоступен")
     sys.exit(app.exec())

@@ -7,6 +7,7 @@ APP_DIR = os.path.dirname(sys.executable) if getattr(sys, "frozen", False) else 
 SETTINGS_FILE = os.path.join(APP_DIR, "settings.json")
 
 DEFAULTS = {
+    "check_updates": True,
     "mic": "",
     "model_size": "small",
     "binds": {"talk": "key:f9", "toggle_overlay": "key:f7", "move_mode": "key:f8"},
